@@ -11,6 +11,9 @@ public class buttonScript : MonoBehaviour
     private Button swordButton;
     private Button pennyButton;
     private Button zombieButton;
+    public bool ss;
+    public bool pp;
+    public bool zz;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +22,7 @@ public class buttonScript : MonoBehaviour
         Penny = GameObject.Find("Penny");
         Zombie = GameObject.Find("Zombie@Z_Run_InPlace");
 
-        Sword.SetActive(false);
-        Penny.SetActive(false);
-        Zombie.SetActive(true);
+        
 
         swordButton = GameObject.Find("swordButton").GetComponent<Button>();
         pennyButton = GameObject.Find("pennyButton").GetComponent<Button>();
@@ -30,6 +31,14 @@ public class buttonScript : MonoBehaviour
         swordButton.GetComponentInChildren<Text>().text = "Sword";
         pennyButton.GetComponentInChildren<Text>().text = "Penny";
         zombieButton.GetComponentInChildren<Text>().text = "Zombie";
+
+        Sword.SetActive(false);
+        Penny.SetActive(false);
+        Zombie.SetActive(true);
+
+        ss = false;
+        pp = false;
+        zz = true;
 
     }
 
@@ -46,6 +55,10 @@ public class buttonScript : MonoBehaviour
         Sword.SetActive(true);
         Penny.SetActive(false);
         Zombie.SetActive(false);
+
+        ss = true;
+        pp = false;
+        zz = false;
     }
 
     void pennyTaskOnClick()
@@ -53,7 +66,10 @@ public class buttonScript : MonoBehaviour
         Sword.SetActive(false);
         Penny.SetActive(true);
         Zombie.SetActive(false);
-        Penny.transform.localScale = new Vector3(100, 3, 100);
+
+        ss = false;
+        pp = true;
+        zz = false;
     }
 
     void zombieTaskOnClick()
@@ -61,5 +77,9 @@ public class buttonScript : MonoBehaviour
         Sword.SetActive(false);
         Penny.SetActive(false);
         Zombie.SetActive(true);
+
+        ss = false;
+        pp = false;
+        zz = true;
     }
 }
